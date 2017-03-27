@@ -101,8 +101,9 @@ String String::operator+=(String s)
 
     result[strln] = '\0';
 
-    return result;
-}
+    return result;      //we are returning a char array here, but the return 
+}                       // type is string, so the compiler will look for a 
+                  //constructor which converts char array into a string if any
 
 int String::SubString(String s, int startpos) const
 {
