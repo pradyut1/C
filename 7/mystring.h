@@ -12,11 +12,13 @@ private:
 	int strln;                  //length of string value
 
 public:
-	//constructors
+	//constructors & destructors
 	String(): strval(NULL), strln(0)
 	{}
     String(const String &s);
 	String(char s[]);           //initialize string value to s
+    ~String()
+    {delete[] strval;}
 
 	//accessor functions/operators
 	int Length() const
@@ -34,6 +36,7 @@ public:
     void ToLower();
     void ToUpper();
     void Append(String s);
+    String operator=(String s);
     String operator+=(String s);
 	bool Replace(int startpos, int endpos, String s);
 	bool Replace(String targetstr, String replacestr);
