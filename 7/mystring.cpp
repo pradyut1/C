@@ -113,6 +113,17 @@ void String::Append(String s)
     }
 }
 
+String String::operator=(String s)
+{
+    delete[] strval;
+
+    strval = new char[s.strln];
+    for (strln = 0; strln < s.strln; strln++)
+        strval[strln] = s.strval[strln];
+
+    return *this;
+}
+
 String String::operator+=(String s)
 {
     *this = *this + s;
